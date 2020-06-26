@@ -1,0 +1,18 @@
+a {
+  color: gray;
+}
+a:hover{
+  color: black;
+
+}
+
+a#linke{
+  text-decoration: none;
+}
+
+span#faIcons{
+  margin-left: 10;
+  margin-right: 10;
+}
+
+
