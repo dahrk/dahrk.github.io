@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon — dahrk.github.io</title>
+  <link rel="stylesheet" href="css/fridge.css" />
+  <style>
+    .coming-soon-card {
+      animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    @keyframes pop-in {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body class="coming-soon-body">
+
+  <header class="page-header">
+    <a href="home.html" class="back-link">&#8592; Home</a>
+  </header>
+
+  <div class="coming-soon-card">
+    <span class="coming-soon-icon">&#x1F9CA;</span><!-- 🧊 -->
+    <h1 class="coming-soon-title" id="page-title">Coming Soon</h1>
+    <p  class="coming-soon-subtitle" id="page-subtitle">
+      Still chilling&hellip; check back soon.
+    </p>
+    <a href="home.html" class="coming-soon-back">&#8592; Back to Home</a>
+  </div>
+
+  <script>
+    // Customize title from URL param: ?page=x or ?page=projects
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var page   = (params.get('page') || '').trim().toLowerCase();
+
+      var titles = {
+        x:        { title: 'X',        sub: 'This page is still thawing out. Check back soon!' },
+        projects: { title: 'Projects', sub: 'Some cool things are brewing in here. Stay tuned!' },
+      };
+
+      var data = titles[page];
+      if (data) {
+        document.getElementById('page-title').textContent    = data.title + ' \u2014 Coming Soon';
+        document.getElementById('page-subtitle').textContent = data.sub;
+        document.title = data.title + ' \u2014 Coming Soon \u00B7 dahrk.github.io';
+      }
+    })();
+  </script>
+
+</body>
+</html>

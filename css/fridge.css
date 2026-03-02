@@ -1,0 +1,291 @@
+/* ============================================================
+   fridge.css — shared styles for dahrk.github.io
+   ============================================================ */
+
+/* ── CSS Custom Properties ────────────────────────────────── */
+:root {
+  --bg-kitchen:   #F5EFE0;   /* warm parchment — kitchen wall */
+  --fridge-ext:   #EAEAEA;   /* fridge exterior */
+  --fridge-int:   #F2F7FF;   /* fridge interior, cool white */
+  --accent-blue:  #2B5EAB;   /* links, header */
+  --text-dark:    #1A1A2E;
+  --text-medium:  #4A5568;
+  --text-light:   #8A9AB5;
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui,
+               Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Page Header (shared, non-home pages) ─────────────────── */
+.page-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 12px 24px;
+  background: rgba(248, 251, 255, 0.93);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid #D0E4F0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.back-link {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* ── Landing Page — Fridge Door ───────────────────────────── */
+.landing-body {
+  background: var(--bg-kitchen);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.landing-hint {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  color: rgba(90, 70, 40, 0.45);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+}
+
+.fridge-door-wrapper {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  /* perspective for child 3D transforms */
+  perspective: 1000px;
+  perspective-origin: right center;
+}
+
+.fridge-door-group {
+  transform-box: fill-box;
+  transform-origin: right center;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter  0.45s ease;
+}
+
+.fridge-door-wrapper:hover .fridge-door-group {
+  transform: rotateY(-22deg);
+  filter: drop-shadow(-14px 4px 22px rgba(0, 0, 0, 0.22));
+}
+
+/* ── Home Page — Fridge Interior ──────────────────────────── */
+.home-body {
+  background: #E8F2FF;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.fridge-interior-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fridge-interior-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* SVG nav items */
+.nav-item {
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+.nav-item:hover {
+  transform: translateY(-5px) scale(1.07);
+  filter: brightness(1.1) drop-shadow(0 6px 10px rgba(0, 0, 0, 0.18));
+}
+
+/* ── About Page ───────────────────────────────────────────── */
+.about-body {
+  background: var(--fridge-int);
+  min-height: 100vh;
+}
+
+.about-content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 100px 32px 60px;
+}
+
+.about-content h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-medium);
+  margin-bottom: 14px;
+}
+
+.about-content .tag-line {
+  display: inline-block;
+  background: rgba(43, 94, 171, 0.09);
+  color: var(--accent-blue);
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 6px;
+  margin-top: 4px;
+}
+
+/* ── Coming Soon Page ─────────────────────────────────────── */
+.coming-soon-body {
+  background: var(--bg-kitchen);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon-card {
+  text-align: center;
+  padding: 48px 40px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  border: 1px solid rgba(200, 190, 170, 0.4);
+  backdrop-filter: blur(6px);
+  max-width: 440px;
+  width: 90%;
+}
+
+.coming-soon-icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.coming-soon-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.coming-soon-subtitle {
+  font-size: 1rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.coming-soon-back {
+  display: inline-block;
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 22px;
+  border: 2px solid var(--accent-blue);
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.coming-soon-back:hover {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+/* ── 404 Page ─────────────────────────────────────────────── */
+.not-found-body {
+  background: var(--fridge-int);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-content {
+  text-align: center;
+  padding: 32px;
+}
+
+.not-found-code {
+  font-size: 7rem;
+  font-weight: 800;
+  color: var(--accent-blue);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -4px;
+}
+
+.not-found-heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.not-found-message {
+  font-size: 1rem;
+  color: var(--text-medium);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.home-link {
+  display: inline-block;
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 24px;
+  border: 2px solid var(--accent-blue);
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.home-link:hover {
+  background: var(--accent-blue);
+  color: #fff;
+}

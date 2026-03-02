@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — dahrk.github.io</title>
+  <link rel="stylesheet" href="css/fridge.css" />
+  <style>
+    .about-content {
+      animation: slide-up 0.5s ease both;
+    }
+    @keyframes slide-up {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .about-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--accent-blue);
+      border-radius: 2px;
+      margin: 20px 0 28px;
+      opacity: 0.5;
+    }
+    .interest-chips {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body class="about-body">
+
+  <header class="page-header">
+    <a href="home.html" class="back-link">&#8592; Home</a>
+  </header>
+
+  <main class="about-content">
+    <h1>About Me</h1>
+    <div class="about-divider"></div>
+
+    <p>Hi! I'm Tony Deng. I'm a technology enthusiast, builder, and optimist.</p>
+
+    <p>I'm currently interested in:</p>
+
+    <div class="interest-chips">
+      <span class="tag-line">Functional Programming</span>
+      <span class="tag-line">Market Cycles</span>
+    </div>
+  </main>
+
+</body>
+</html>
